@@ -1,0 +1,40 @@
+<header class="app-header">
+  <div class="header-container">
+    <div class="logo-area" routerLink="/analyze">
+      <span class="material-icons-round logo-icon">verified_user</span>
+      <span class="logo-text">Legit<span class="logo-accent">Sakura</span></span>
+    </div>
+    
+    <nav class="nav-links">
+      <a routerLink="/analyze" routerLinkActive="active" class="nav-item">
+        <span class="material-icons-round">biotech</span> Analyze
+      </a>
+      <a routerLink="/benchmark" routerLinkActive="active" class="nav-item">
+        <span class="material-icons-round">analytics</span> Benchmark
+      </a>
+      <a routerLink="/settings" routerLinkActive="active" class="nav-item">
+        <span class="material-icons-round">settings</span> Settings
+      </a>
+    </nav>
+
+    <div class="status-indicator">
+      @if (settingsService.apiKey()) {
+        <span class="status-badge key-ok" title="Using custom API key">
+          <span class="dot"></span> Custom Key Active
+        </span>
+      } @else {
+        <span class="status-badge key-missing" title="Falling back to backend environment variables">
+          <span class="dot"></span> Env Key Active
+        </span>
+      }
+    </div>
+  </div>
+</header>
+
+<main class="app-main">
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="app-footer">
+  <p>© 2026 LegitSakura Image Authentication Lab • Strictly for Research and Analysis Purposes.</p>
+</footer>
